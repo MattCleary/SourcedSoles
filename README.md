@@ -1,3 +1,10 @@
-# SourcedSoles
-# SourcedSoles
-# SourcedSoles
+#SourcedSoles
+
+ Web Store developed using the Java Play Framework.		
+ Part of our Continous Assesment 2 for the Web Design and Development Module		
+ 		
+ Team| Student Number		
+ ------------- | -------------		
+ Ian Daly | X00132250		
+ Matthew Cleary | X001300277		
+ Shane Cotter | X12345678		
