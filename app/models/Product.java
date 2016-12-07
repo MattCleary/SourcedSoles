@@ -6,31 +6,46 @@ Shane Cotter - X00131736
  */
 package models;
 
-public class Product {
+import java.util.*;
+import javax.persistence.*;
+import play.data.format.*;
+import play.data.validation.*;
+import com.avaje.ebean.*;
 
+@Entity
+public class Product extends Model {
+
+    @Id
+    private Long id;
+    @Constraints.Required
     private String name;
-    private int size;
+    @Constraints.Required
     private String brand;
-    private String condition;
-    private boolean delievery;
+    @Constraints.Required
+    private int size;
+    @Constraints.Required
+    private int stock;
+    @Constraints.Required
     private double price;
 
-    public Product(){
-        this.name = "";
-        this.size = 0;
-        this.brand = "";
-        this.condition = "";
-        this.delievery = false;
-        this.price = 0.00;
+    public Product() {
     }
 
-    public Product(String name, int size, String brand, String condition, boolean delievery, double price) {
+    public Product(Long id, String name, String brand, int size, int stock, double price) {
+        this.id = id;
         this.name = name;
-        this.size = size;
         this.brand = brand;
-        this.condition = condition;
-        this.delievery = delievery;
+        this.size = size;
+        this.stock = stock;
         this.price = price;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -41,14 +56,6 @@ public class Product {
         this.name = name;
     }
 
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
     public String getBrand() {
         return brand;
     }
@@ -57,20 +64,20 @@ public class Product {
         this.brand = brand;
     }
 
-    public String getCondition() {
-        return condition;
+    public int getSize() {
+        return size;
     }
 
-    public void setCondition(String condition) {
-        this.condition = condition;
+    public void setSize(int size) {
+        this.size = size;
     }
 
-    public boolean isDelievery() {
-        return delievery;
+    public int getStock() {
+        return stock;
     }
 
-    public void setDelievery(boolean delievery) {
-        this.delievery = delievery;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
     public double getPrice() {
@@ -79,5 +86,11 @@ public class Product {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public static Finder<Long,Product> find = new Finder<Long,Product>(Product.class);
+
+    public static List<Product> findAll(){
+        return Product.find.all();
     }
 }

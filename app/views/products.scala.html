@@ -1,73 +1,30 @@
-@import javax.swing.text.html.HTML
-@main("products"){
+@(products: List[models.Product])
+@main("products") {
     <div class="container">
-        <div class="row">
-            <h2 class="text-center">Showing products for "Variable name"</h2>
-            <div class="col-lg-6 col-md-7 col-sm-9 col-xs-6 col-centered">
-                <form class="form-inline" action="#" method="POST">
-                    <div class="form-group">
-                        <select name="size" class="form-control">
-                            <option value="size">Choose Size</option>
-                            <option value="UK2">UK2</option>
-                            <option value="UK3">UK3</option>
-                            <option value="UK4">UK4</option>
-                            <option value="UK5">UK5</option>
-                            <option value="UK6">UK6</option>
-                            <option value="UK7">UK7</option>
-                            <option value="UK8">UK8</option>
-                            <option value="UK9">UK9</option>
-                            <option value="UK10">UK10</option>
-                            <option value="UK11">UK11</option>
-                            <option value="UK12">UK12</option>
-                            <option value="UK13">UK13</option>
-                            <option value="UK14">UK14</option>
-                            <option value="UK15">UK15</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <select name="brand" class="form-control">
-                            <option value="brand">Select Brand</option>
-                            <option value="adidas">Adidas</option>
-                            <option value="nike">Nike</option>
-                            <option value="puma">Puma</option>
-                            <option value="asics">Asics</option>
-                            <option value="newbalance">New Balance</option>
-                            <option value="yeezy">Yeezy</option>
-                            <option value="christianlaboutin">Christian Laboutin</option>
-                            <option value="balenciga">Balenciga</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <select name="sortby" class="form-control">
-                            <option value="sort">Sort By</option>
-                            <option value="newest">Newest</option>
-                            <option value="oldest">Oldest</option>
-                            <option value="highest">Price High</option>
-                            <option value="lowest">Price Low</option>
-                        </select>
-                    </div>
-                    <input type="submit" class="form-control btn-danger" name="submit" placeholder="Update">
-                </form>
-            </div>
-        </div>
+
+        <h2 class = "text-center">Our Products In Stock</h2>
+
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="productbounds">
-                <a href="@routes.HomeController.productsPage()">
-                    <div class="col-sm-6 col-md-4 col-xs-6 col-lg-3">
+
+                @for(p <- products) {
+                    <div class="col-sm-6 col-md-4 col-xs-6 col-lg-4 products">
                         <div class="thumbnail">
                             <img src="@routes.Assets.versioned("images/productplaceholder.svg")" alt="...">
                             <div class="caption">
-                                <h3 class="text-center">Product Name</h3>
-                                <h4 class="text-center"><span class = "redtext">€</span> Price here</h4>
-                                <p class="text-center">Product Description</p>
+                                <h3 class="text-center">@p.getName</h3>
+                                <h4 class="text-center"><span class = "redtext">&euro;</span>@("%.2f".format(p.getPrice))</h4>
+                                <p class="text-center">Size: @p.getSize</p>
+                                <p class="text-center">Stock: @p.getStock</p>
+                                <p class="text-center">Brand: @p.getBrand</p>
                             </div>
                         </div>
                     </div>
-                </a>
-            </div>
+                } <!--End of the loop-->
+            </div><!--End of product bounds-->
             <!-- /.column-->
         </div>
-        <!-- /.row-->
+            <!-- /.row-->
     </div>
-    <!-- /.container-->
+        <!-- /.container-->
 }
