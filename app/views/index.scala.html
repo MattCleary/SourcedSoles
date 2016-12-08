@@ -1,5 +1,6 @@
 @import javax.swing.text.html.HTML
-@main("home"){
+@(user: models.User)
+@main("home",user){
     <div id="mycarousel" class="carousel slide" data-ride="carousel">
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">

@@ -1,4 +1,4 @@
-@(title: String)(content: Html)
+@(title: String, user: models.User)(content: Html)
 @import javax.swing.text.html.HTML
 <html>
     <head>
@@ -34,10 +34,18 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="@routes.HomeController.index()">Home</a></li>
-                        <li><a href="@routes.HomeController.products()">Products</a></li>
-                        <li><a href="@routes.LoginController.login()">Login</a></li>
+                        <li @if(title == "home") {
+                            class="active"}><a href="@routes.HomeController.index()">Home</a></li>
+                        <li @if(title == "products") {
+                            class="active"}><a href="@routes.HomeController.products()">Products</a></li>
 
+                        <li @if(title == "login"){class = "active"}>
+                        @if(user == null) {
+                            <a href="@routes.LoginController.login()">Login</a>
+                        } else {
+                            <a href = "@routes.LoginController.logout()">Logout @user.getName()</a>
+                        }
+                        </li>
                     </ul>
 
                 </div>
