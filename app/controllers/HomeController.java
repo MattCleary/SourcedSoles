@@ -45,9 +45,11 @@ public class HomeController extends Controller {
     }
 
     @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+    @Transactional
     public Result addProduct() {
         Form<Product> addProductForm = formFactory.form(Product.class);
-        return ok(addProduct.render(addProductForm));
+        return ok(addProduct.render(addProductForm,getUserFromSession()));
     }
 
     public Result addProductSubmit() {
@@ -57,7 +59,7 @@ public class HomeController extends Controller {
             return badRequest(addProduct.render(newProductForm, getUserFromSession()));
         }
 
-        Product p = new ProductForm.get();
+        Product p = newProductForm.get();
 
         if (p.getId() == null) {
             p.save();

@@ -38,14 +38,15 @@
                             class="active"}><a href="@routes.HomeController.index()">Home</a></li>
                         <li @if(title == "products") {
                             class="active"}><a href="@routes.HomeController.products()">Products</a></li>
-
+                        <li @if(title == "AddProduct"){class = "active"}>
+                            <a href="@routes.HomeController.addProduct()">Add A Product</a>
+                        </li>
                         <li @if(title == "login"){class = "active"}>
                         @if(user == null) {
                             <a href="@routes.LoginController.login()">Login</a>
                         } else {
                             <a href = "@routes.LoginController.logout()">Logout @user.getName()</a>
                         }
-                        </li>
                     </ul>
 
                 </div>
