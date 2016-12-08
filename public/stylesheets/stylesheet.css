@@ -88,46 +88,12 @@
 		margin-bottom: 1em;
 		font-size: 1em;
 	}
-
-	.dropdownflip h4{
-		color: white;
-	}
-
-	.dropdownflip p{
-		color: white;
-	}
-
-	.dropdownflip a{
-		color: white !important;
-	}
-
-	.form-action .btn{
-		color: red;
-
-	}
 }
 /*Custom css for carousel when screen gets smaller */
 
 #checkoutheading span{
 	font-family: Pacifico;
 	color: #d9534f;
-}
-
-.checkoutpanel{
-	background-color: #d9534f !important;
-	color: white !important;
-}
-
-.checkoutpanel button{
-	color: #d9534f !important;
-}
-
-#trashproduct{
-	color: #d9534f;	
-}
-
-.panel {
-	border-color: #d9534f;	
 }
 
 
@@ -137,24 +103,7 @@
 	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
 }
 
-.dropdownflip{
-	width: auto;
-	padding: 1em;
-}
-
-.dropdownflip h4{
-	margin-right: 6em;
-	margin-left: 6em;
-	padding: 0;
-}
-
-#registerfield{
-	margin-top: 0;
-	margin-bottom: 2em;
-	padding-top: 2em;
-}
-
-.registerlogo{
+.logo{
 	font-family: Pacifico;
 	color: #d9534f;
 }

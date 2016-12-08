@@ -1,5 +1,5 @@
-@import javax.swing.text.html.HTML
 @(title: String)(content: Html)
+@import javax.swing.text.html.HTML
 <html>
     <head>
         <title>Sourced Soles-The Latest In Sourced Footwear</title>
@@ -36,32 +36,10 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="@routes.HomeController.index()">Home</a></li>
                         <li><a href="@routes.HomeController.products()">Products</a></li>
+                        <li><a href="@routes.LoginController.login()">Login</a></li>
 
-                            <!--end of search navlink-->
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                Login<span class="caret"></span></a>
-                            <ul class="dropdown-menu dropdown-lr animated flipInX dropdownflip">
-                                <li>
-                                    <h4 class="text-center">
-                                        Login <i class="fa fa-2x fa-fw fa-lock text-inverse"></i></h4></li>
-                                <li>
-
-                                    <form method="POST" id=>
-                                        <input type="text" class="form-control" name="email" placeholder="Email Address">
-                                        <br>
-                                        <input type="password" class="form-control" name="password" placeholder="Password">
-                                        <div class="form-actions">
-                                            <br>
-                                            <p class="text-center">
-                                                <input type="submit" class="btn btn-danger" placeholder="Login">
-                                            </p>
-                                        </div>
-                                    </form>
-
-                                </li>
-                            </ul>
                     </ul>
+
                 </div>
                     <!-- /.navbar-collapse -->
             </div>

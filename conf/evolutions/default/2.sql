@@ -14,3 +14,7 @@ insert into product (id,name,brand,size,stock,price) values ( 9,'Air Mag','Nike'
 insert into product (id,name,brand,size,stock,price) values ( 10,'Air Pikey','Nike',14,1,30000);
 insert into product (id,name,brand,size,stock,price) values ( 11,'Air Jordan 1 Reverse Backboard','Nike',9,22,380);
 insert into product (id,name,brand,size,stock,price) values ( 12,'Tubular','Adidas',9,60,120);
+
+insert into user (email,role,name,password) values ('iandaly@sourcedsoles.com','admin','Ian Daly','sneakers');
+insert into user (email,role,name,password) values ('shanecotter@sourcedsoles.com','admin','Shane Cotter','sneakers');
+insert into user (email,role,name,password) values ('matthewcleary@sourcedsoles.com','admin','Matthew Cleary','sneakers');

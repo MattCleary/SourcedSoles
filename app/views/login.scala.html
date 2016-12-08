@@ -1,0 +1,25 @@
+@import helper._
+@(loginForm: Form[models.Login])
+
+@main("login"){
+
+<div class="container">
+  <div class="row">
+    <div class = "col-lg-6 col-md-6 col-sm-8 col-xs-12 col-centered">
+  <h2 class = "text-center text-muted">Login into <span class = "logo">Sourced Soles</span></h2>
+
+@helper.form(action = controllers.routes.LoginController.loginSubmit()) {
+  @inputText(loginForm("email"), '_label -> "", 'class -> "form-control", 'placeholder -> "Email")
+  <br>
+  @inputPassword(loginForm("password"), '_label -> "", 'class -> "form-control", 'placeholder -> "Password")
+  <div class="form-actions">
+    <br>
+    <p class="text-center">
+      <input type="submit" class="btn btn-danger" placeholder="Login">
+    </p>
+  </div>
+</div>
+</div>
+  </div>
+}@*End of form*@
+}
