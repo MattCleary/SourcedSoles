@@ -38,9 +38,11 @@
                             class="active"}><a href="@routes.HomeController.index()">Home</a></li>
                         <li @if(title == "products") {
                             class="active"}><a href="@routes.HomeController.products()">Products</a></li>
-                        <li @if(title == "AddProduct"){class = "active"}>
+                        @if(user != null) {
+                            <li @if(title == "AddProduct") {class = "active"}>
                             <a href="@routes.HomeController.addProduct()">Add A Product</a>
-                        </li>
+                            </li>
+                        }
                         <li @if(title == "login"){class = "active"}>
                         @if(user == null) {
                             <a href="@routes.LoginController.login()">Login</a>
@@ -77,6 +79,11 @@
     </body>
         <!--Javascript file to make footer always on bottom of page -->
     <script>
+
+        function confirmDel(){
+            return confirm('Are you sure?');
+        }
+
             $(document).ready(function () {
 
                 var docHeight = $(window).height();

@@ -23,9 +23,7 @@ public class LoginController extends Controller {
     }
 
     public Result login(){
-
         Form<Login> loginForm = formFactory.form(Login.class);
-
         return ok(login.render(loginForm, User.getUserById(session().get("email"))));
     }
 

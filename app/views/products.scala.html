@@ -1,43 +1,45 @@
 @(products: List[models.Product], user: models.User)
-@main("products", user) {
-    <div class="container">
+    @main("products", user) {
+        <div class="container">
 
-        <h2 class = "text-center">Our Products In Stock</h2>
+            <h2 class = "text-center text-muted"><span class = "logo">Sourced Soles</span> Products In Stock</h2>
 
-        @if(flash.containsKey("success")) {
-            <div class="alert alert-success">
-            @flash.get("success")
-            </div>
+            @if(flash.containsKey("success")) {
+                <div class="alert alert-success">
+                @flash.get("success")
+                </div>
 
-        }
+            }
 
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="productbounds">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="productbounds">
 
-                @for(p <- products) {
-                    <div class="col-sm-6 col-md-4 col-xs-6 col-lg-4 products">
-                        <div class="thumbnail">
-                            <img src="@routes.Assets.versioned("images/productplaceholder.svg")" alt="...">
-                            <div class="caption">
-                                <h3 class="text-center">@p.getName</h3>
-                                <h4 class="text-center"><span class = "redtext">&euro;</span> @("%.2f".format(p.getPrice))</h4>
-                                <p class="text-center">Size: @p.getSize</p>
-                                <p class="text-center">Stock: @p.getStock</p>
-                                <p class="text-center">Brand: @p.getBrand</p>
+                    @for(p <- products) {
+                        <div class="col-sm-6 col-md-4 col-xs-6 col-lg-4 products">
+                            <div class="thumbnail">
+                                <img src="@routes.Assets.versioned("images/productplaceholder.svg")" alt="...">
+                                <div class="caption">
+                                    <h3 class="text-center">@p.getName</h3>
+                                    <h4 class="text-center"><span class = "redtext"><b>&euro;</b></span> @("%.2f".format(p.getPrice))</h4>
+                                    <p class="text-center"><b>Size:</b> @p.getSize</p>
+                                    <p class="text-center"><b>Stock:</b> @p.getStock</p>
+                                    <p class="text-center"><b>Brand:</b> @p.getBrand</p>
+                                    @if(user != null) {
+                                        <p class = "text-center"><a href="@routes.HomeController.deleteProduct(p.getId)"
+                                        onclick="return confirmDel();">
+                                            <button class = "btn btn-lg btn-danger"><span class="glyphicon glyphicon-trash thrashbutton"></span> </button>
+                                        </a>
+                                        </p>
+                                    }
 
-                                <p class="text-center"><a href="@routes.HomeController.deleteProduct(p.getId)" class="btn-xs btn-default"
-                                onclick="return confirmDel();">
-                                    <span class="glyphicon glyphicon-trash"></span>
-                                </a>
-                                </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                } <!--End of the loop-->
-            </div><!--End of product bounds-->
-            <!-- /.column-->
+                    } <!--End of the loop-->
+                </div><!--End of product bounds-->
+                <!-- /.column-->
+            </div>
+                <!-- /.row-->
         </div>
-            <!-- /.row-->
-    </div>
-        <!-- /.container-->
-}
+            <!-- /.container-->
+    }

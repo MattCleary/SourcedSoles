@@ -7,6 +7,14 @@
 	color:#d9534f;
 }
 
+#loginbounds{
+	padding-top: 3em;
+}
+
+.thrashbutton{
+	font-size: 1em;
+}
+
 .products{
 	margin-bottom: 0.5em;
 }

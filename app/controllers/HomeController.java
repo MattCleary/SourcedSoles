@@ -22,13 +22,11 @@ public class HomeController extends Controller {
         this.formFactory = f;
     }
 
-
     public Result index() {
         return ok(index.render(getUserFromSession()));
     }
 
     public Result products() {
-
         List<Product> productsList = Product.findAll();
         return ok(products.render(productsList, getUserFromSession()));
     }
@@ -44,14 +42,17 @@ public class HomeController extends Controller {
         return redirect(controllers.routes.HomeController.products());
     }
 
+
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+    public Result addProduct() {
+        Form<Product> addProductForm = formFactory.form(Product.class);
+        return ok(addProduct.render(addProductForm, getUserFromSession()));
+    }
+
     @Security.Authenticated(Secured.class)
     @With(AuthAdmin.class)
     @Transactional
-    public Result addProduct() {
-        Form<Product> addProductForm = formFactory.form(Product.class);
-        return ok(addProduct.render(addProductForm,getUserFromSession()));
-    }
-
     public Result addProductSubmit() {
         Form<Product> newProductForm = formFactory.form(Product.class).bindFromRequest();
 
@@ -67,12 +68,13 @@ public class HomeController extends Controller {
             p.update();
         }
 
-        flash("success", "Product" + p.getName() + "has been created/updated");
+        flash("success", "Product " + p.getName() + " has been created/updated");
 
         return redirect(controllers.routes.HomeController.products());
     }
 
     @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
     @Transactional
     public Result updateProduct(Long id) {
 
