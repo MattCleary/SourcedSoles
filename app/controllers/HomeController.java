@@ -26,9 +26,18 @@ public class HomeController extends Controller {
         return ok(index.render(getUserFromSession()));
     }
 
-    public Result products() {
-        List<Product> productsList = Product.findAll();
-        return ok(products.render(productsList, getUserFromSession()));
+    public Result products(Long cat) {
+        List<Product> productsList = new ArrayList<Product>();
+        List<Category> categoriesList = Category.findAll();
+
+        if(cat == 0){
+            productsList = Product.findAll();
+        }else{
+            productsList = Category.find.ref(cat).getProducts();
+        }
+
+
+        return ok(products.render(productsList,categoriesList, getUserFromSession()));
     }
 
     @Security.Authenticated(Secured.class)
@@ -90,7 +99,6 @@ public class HomeController extends Controller {
         }
 
         return ok(addProduct.render(productForm, getUserFromSession()));
-
 
     }
 

@@ -28,6 +28,12 @@ public class Product extends Model {
     @Constraints.Required
     private double price;
 
+    @ManyToOne
+    private Category category;
+
+    @Constraints.Required
+    private String description;
+
     public Product() {
     }
 
@@ -89,6 +95,10 @@ public class Product extends Model {
     }
 
     public static Finder<Long,Product> find = new Finder<Long,Product>(Product.class);
+
+    public Category getCategory() {
+        return category;
+    }
 
     public static List<Product> findAll(){
         return Product.find.all();

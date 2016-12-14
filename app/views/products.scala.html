@@ -1,4 +1,4 @@
-@(products: List[models.Product], user: models.User)
+@(products: List[models.Product],categories: List[models.Category], user: models.User)
     @main("products", user) {
         <div class="container">
 
@@ -12,6 +12,19 @@
             }
 
             <div class="row">
+
+                <div class = "col-lg-4 col-md-4 col-sm-12 col-xs-12 col-center">
+                <h4 class = "text-center">Categories</h4>
+                    <div class = "list-group">
+                        <a href="@routes.HomeController.products(0)" class = "list-group-item">All categories</a>
+                        @for(c <- categories){
+                            <a href = "@routes.HomeController.products(c.getId)" class = "list-group-item">@c.getName
+                            <span class = "badge">@c.getProducts.size()</span>
+                            </a>
+                        }
+                    </div>
+                </div>
+
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="productbounds">
 
                     @for(p <- products) {
@@ -23,7 +36,7 @@
                                     <h4 class="text-center"><span class = "redtext"><b>&euro;</b></span> @("%.2f".format(p.getPrice))</h4>
                                     <p class="text-center"><b>Size:</b> @p.getSize</p>
                                     <p class="text-center"><b>Stock:</b> @p.getStock</p>
-                                    <p class="text-center"><b>Brand:</b> @p.getBrand</p>
+                                    <p class="text-center"><b>Brand:</b> @p.getCategory.getName</p>
                                     @if(user != null) {
                                         <p class = "text-center"><a href="@routes.HomeController.deleteProduct(p.getId)"
                                         onclick="return confirmDel();">
