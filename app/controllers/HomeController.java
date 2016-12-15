@@ -48,7 +48,7 @@ public class HomeController extends Controller {
 
         flash("success", "Product has been deleted");
 
-        return redirect(controllers.routes.HomeController.products());
+        return redirect(controllers.routes.HomeController.products(0));
     }
 
 
@@ -79,7 +79,7 @@ public class HomeController extends Controller {
 
         flash("success", "Product " + p.getName() + " has been created/updated");
 
-        return redirect(controllers.routes.HomeController.products());
+        return redirect(controllers.routes.HomeController.products(0));
     }
 
     @Security.Authenticated(Secured.class)
