@@ -1,4 +1,4 @@
-@(products: List[models.Product],categories: List[models.Category], user: models.User)
+@(products: List[models.Product],categories: List[models.Category], user: models.User, env: play.api.Environment)
     @main("products", user) {
         <div class="container">
 
@@ -33,7 +33,12 @@
                     @for(p <- products) {
                         <div class="col-sm-6 col-md-4 col-xs-6 col-lg-4 products">
                             <div class="thumbnail">
-                                <img src="@routes.Assets.versioned("images/productplaceholder.svg")" alt="...">
+                                @if(env.resource("public/images/productImages/" + p.getId + ".jpg").isDefined){
+                                    <img src="/assets/images/productImages/@(p.getId + ".jpg")" alt="...">
+                                }else{
+                                    <img src="@routes.Assets.versioned("images/productplaceholder.svg")" alt="...">
+                                }
+
                                 <div class="caption">
                                     <h3 class="text-center">@p.getName</h3>
                                     <h4 class="text-center"><span class = "redtext"><b>&euro;</b></span> @("%.2f".format(p.getPrice))</h4>
@@ -51,7 +56,6 @@
                                         </a>
                                         </p>
                                     }
-
                                 </div>
                             </div>
                         </div>

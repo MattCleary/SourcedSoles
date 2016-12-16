@@ -12,7 +12,7 @@
                 <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 col-centered">
 
 
-                @form(action = routes.HomeController.addProductSubmit(), 'class -> "form-horizontal", 'role -> "form") {
+                @form(action = routes.HomeController.addProductSubmit(), 'class -> "form-horizontal", 'role -> "form", 'enctype -> "multipart/form-data") {
 
                     @inputText(addProductForm("id"), '_label -> "ID", 'class -> "form-control")
                     @inputText(addProductForm("name"), '_label -> "Name", 'class -> "form-control")
@@ -30,14 +30,19 @@
                         '_showConstraints -> false, 'class -> "form-control"
                     )
 
+                    <label>Image Upload</label>
+                    <input class = "btn btn-danger" type = "file" name = "upload">
+
+                    <br>
+
                     <div class="actions">
                         <input type="submit" value="Add Product" class="btn btn-danger">
 
 
                         @*<button type="cancel" onclick="javascript:window.location='http://stackoverflow.com';">Cancel</button>*@
-                        <a href="@routes.HomeController.index()">
-                            <button class="btn btn-warning">Cancel</button>
-                        </a>
+                        <a href="@routes.HomeController.products()" class="btn btn-warning">Cancel</a>
+
+
                     </div>
                 </div>
             </div>
