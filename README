@@ -1,9 +1,9 @@
-This is your new Play application
-=================================
+SourcedSoles - play framework application 
+Ian Daly	X00132250
+Matthew Cleary	X00130277
+Shane Cotter	X00131736
 
-This file will be packaged with your application when using `activator dist`.
-
-There are several demonstration files available in this template.
+Report for part two located in : sourcedsoles/report
 
 Controllers
 ===========
