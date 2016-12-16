@@ -2,6 +2,10 @@
 
 # --- !Ups
 
+insert into category(id,name) values(1,'Adidas');
+insert into category(id,name) values(2,'Nike');
+insert into category(id,name) values(3,'Air Jordan');
+
 insert into product (id,name,brand,size,stock,category_id,price) values ( 1,'Yeezy Boost 350 Turtle Dove','Adidas',9,7,1,800);
 insert into product (id,name,brand,size,stock,category_id,price) values ( 2,'Yeezy Boost 750 Triple Black','Adidas',8,4,1,1200);
 insert into product (id,name,brand,size,stock,category_id,price) values ( 3,'CARHARTT X EMINEM','Air Jordan',10.5,1,3,20000);
@@ -15,9 +19,6 @@ insert into product (id,name,brand,size,stock,category_id,price) values ( 10,'Ai
 insert into product (id,name,brand,size,stock,category_id,price) values ( 11,'Air Jordan 1 Reverse Backboard','Nike',9,22,2,380);
 insert into product (id,name,brand,size,stock,category_id,price) values ( 12,'Tubular','Adidas',9,60,1,120);
 
-insert into category(id,name) values(1,'Adidas');
-insert into category(id,name) values(2,'Nike');
-insert into category(id,name) values(3,'Air Jordan');
 
 insert into user (email,role,name,password) values ('iandaly@sourcedsoles.com','admin','Ian Daly','sneakers');
 insert into user (email,role,name,password) values ('shanecotter@sourcedsoles.com','admin','Shane Cotter','sneakers');

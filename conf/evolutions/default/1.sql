@@ -18,7 +18,6 @@ create table product (
   stock                         integer,
   price                         double,
   category_id                   bigint,
-  description                   varchar(255),
   constraint pk_product primary key (id)
 );
 create sequence product_seq;

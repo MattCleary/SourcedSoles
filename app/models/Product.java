@@ -31,8 +31,6 @@ public class Product extends Model {
     @ManyToOne
     private Category category;
 
-    @Constraints.Required
-    private String description;
 
     public Product() {
     }
