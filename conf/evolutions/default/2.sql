@@ -15,7 +15,7 @@ insert into product (id,name,brand,size,stock,category_id,price) values ( 6,'Yee
 insert into product (id,name,brand,size,stock,category_id,price) values ( 7,'Pharrell Human Race','Adidas',9.5,7,1,450);
 insert into product (id,name,brand,size,stock,category_id,price) values ( 8,'NMD MasterMind','Adidas',7,10,1,700);
 insert into product (id,name,brand,size,stock,category_id,price) values ( 9,'Air Mag','Nike',12,1,2,10000);
-insert into product (id,name,brand,size,stock,category_id,price) values ( 10,'Air Pikey','Nike',14,1,2,30000);
+insert into product (id,name,brand,size,stock,category_id,price) values ( 10,'Air Jordan','Nike',14,1,2,30000);
 insert into product (id,name,brand,size,stock,category_id,price) values ( 11,'Air Jordan 1 Reverse Backboard','Nike',9,22,2,380);
 insert into product (id,name,brand,size,stock,category_id,price) values ( 12,'Tubular','Adidas',9,60,1,120);
 
